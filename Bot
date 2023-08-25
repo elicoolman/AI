@@ -1,0 +1,21 @@
+pip install chatterbot
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+# Create a chat bot instance
+bot = ChatBot('My Bot')
+
+# Create a new trainer for the chat bot
+trainer = ChatterBotCorpusTrainer(bot)
+
+# Train the chat bot based on the English corpus
+trainer.train('chatterbot.corpus.english')
+
+# Chat bot loop
+while True:
+    user_input = input("User: ")
+
+    # Get a response from the chat bot
+    response = bot.get_response(user_input)
+
+    print("Bot: ", response)
